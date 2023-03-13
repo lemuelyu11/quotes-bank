@@ -38,4 +38,5 @@ app.listen(port, () => {
     console.log("Random Quote Generator app is listening on port: " + port);
   });
 
+module.exports = app 
 
