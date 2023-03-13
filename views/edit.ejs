@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="/main.css">
+    <title>Edit Quotes</title>
+</head>
+<body>
+    <div class="editcontainer">
+    <h1>Edit Quotes</h1>
+    <form action="/quotes/<%=quote._id%>/update?_method=PUT" method="POST">
+        Text: <textarea id="autoresizing" type="text" name="text" > <%=quote.text%> </textarea><br/><br/>
+        Author: <textarea id="autoresizing" type="text" name="author"> <%=quote.author%> </textarea><br/><br/>
+        <input type="submit" value="Update Quote"/>
+        </form>
+    <form action="/quotes/<%=quote._id%>?_method=DELETE" method="POST">
+        <input type="submit" value="Delete Quote"/>
+    </form>
+    </body>
+</div>
+<style>
+    #autoresizing {
+        display: block;
+        overflow: hidden;
+        resize: none;
+        width:700px;
+    }
+</style>
+<script type="text/javascript">
+    textarea = document.querySelector("#autoresizing");
+    textarea.addEventListener('input', autoResize, false);
+          
+    function autoResize() {
+        this.style.height = 'auto';
+        this.style.height = this.scrollHeight + 'px';
+    }
+  </script>
+</body>
+</html>

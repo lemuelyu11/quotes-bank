@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quotes Bank</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="/main.css">
+  </head>
+  <body>
+    <div class="quotes-container">
+      <div class="quotes-innercontainer" >
+      <h1>Quotes</h1><br/><br/>
+      <% for (quote of quotes) {%>
+        <a href="/quotes/<%=quote._id%>/edit"><p><%=quote.text%></p> <p><%=quote.author%></p><br/><br/></a><%}%>
+        <br/><br/><form style="display:inline" action="/quotes" method="POST">
+        Text: <textarea id="autoresizing" type="text" name="text"> </textarea> <br/><br/>
+        Author: <textarea id="autoresizing" type="text" name="author" ></textarea></textarea><br/><br/>
+        <input type="Submit" value="Create Quote" />
+    </form>
+    </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <style>
+      #autoresizing {
+          display: block;
+          overflow: hidden;
+          resize: none;
+          width:700px;
+      }
+  </style>
+
+<script type="text/javascript">
+  textarea = document.querySelector("#autoresizing");
+  textarea.addEventListener('input', autoResize, false);
+        
+  function autoResize() {
+      this.style.height = 'auto';
+      this.style.height = this.scrollHeight + 'px';
+  }
+</script>
+  </body>
+</html>
