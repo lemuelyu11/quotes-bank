@@ -38,5 +38,9 @@ app.listen(port, () => {
     console.log("Random Quote Generator app is listening on port: " + port);
   });
 
+  app.get('/', (req, res) => {
+    res.sendFile('index.html', {root: path.join(__dirname, 'public')});
+  })
+  
 module.exports = app 
 
